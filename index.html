@@ -2,203 +2,531 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FOOTBET</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>BETAPP</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #101214;
-    color: white;
+html,body{
+    margin:0;
+    padding:0;
+    background:#090e16;
+    color:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 }
 
-header {
-    height: 64px;
-    background: #171a1d;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 35px;
-    border-bottom: 1px solid #292d31;
+body{
+    padding-bottom:90px;
 }
 
-.logo {
-    font-size: 25px;
-    font-weight: 800;
-    color: #35d06f;
+/* ===== HEADER ===== */
+
+.header{
+    height:105px;
+    background:#0d131c;
+    border-bottom:1px solid #202938;
+    display:flex;
+    align-items:center;
+    padding:0 22px;
+    gap:18px;
 }
 
-.balance {
-    background: #22272b;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: bold;
+.logo{
+    font-size:28px;
+    font-weight:950;
+    letter-spacing:-2px;
+    color:#fff2a5;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 25px auto;
-    padding: 0 20px;
+.logo span{
+    color:#ffbf00;
 }
 
-.banner {
-    background: linear-gradient(120deg, #126b38, #173a29);
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 25px;
+.colors{
+    display:flex;
+    gap:8px;
 }
 
-.banner h1 {
-    font-size: 32px;
-    margin-bottom: 8px;
+.color{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    border:3px solid transparent;
 }
 
-.banner p {
-    color: #c8d8ce;
+.color.black{
+    background:#0b1018;
+    border-color:#ffbd00;
 }
 
-.layout {
-    display: grid;
-    grid-template-columns: 1fr 330px;
-    gap: 20px;
+.color.white{background:white}
+.color.blue{background:#55adf5}
+.color.green{background:#75df8b}
+.color.red{background:#ff737c}
+
+.balance{
+    margin-left:auto;
+    background:#18b97b;
+    border-radius:30px;
+    padding:12px 18px;
+    font-size:18px;
+    font-weight:800;
+    white-space:nowrap;
 }
 
-.card {
-    background: #171a1d;
-    border-radius: 12px;
-    border: 1px solid #292d31;
-    overflow: hidden;
-    margin-bottom: 15px;
+/* ===== SPORTS ===== */
+
+.sports{
+    display:flex;
+    gap:12px;
+    padding:23px 20px;
+    overflow-x:auto;
+    background:#0d131c;
+    border-bottom:1px solid #202938;
 }
 
-.card-title {
-    padding: 16px 20px;
-    border-bottom: 1px solid #292d31;
-    font-size: 18px;
-    font-weight: bold;
+.sports::-webkit-scrollbar,
+.leagues::-webkit-scrollbar{
+    display:none;
 }
 
-.match {
-    padding: 18px 20px;
+.sport{
+    flex:0 0 185px;
+    height:62px;
+    border:0;
+    border-radius:34px;
+    background:#171e2b;
+    color:#8993a6;
+    font-size:19px;
+    font-weight:800;
 }
 
-.league {
-    color: #8e969d;
-    font-size: 13px;
-    margin-bottom: 15px;
+.sport.active{
+    background:#ffbd00;
+    color:#090e16;
 }
 
-.teams {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+/* ===== LEAGUES ===== */
+
+.leagues{
+    display:flex;
+    gap:8px;
+    padding:12px 20px;
+    overflow-x:auto;
+    background:#0d131c;
+    border-bottom:1px solid #202938;
 }
 
-.team {
-    font-size: 16px;
-    font-weight: bold;
+.league{
+    white-space:nowrap;
+    padding:9px 14px;
+    border-radius:20px;
+    background:#151c28;
+    color:#929caf;
+    border:1px solid #283243;
 }
 
-.vs {
-    color: #7f878e;
-    font-size: 13px;
+.league.active{
+    background:#ffbd00;
+    color:#080d14;
+    border-color:#ffbd00;
 }
 
-.odds {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+/* ===== PROMO ===== */
+
+.promo{
+    margin:18px 20px;
+    min-height:190px;
+    padding:25px;
+    border-radius:24px;
+    border:1px solid #293443;
+    background:
+        radial-gradient(circle at 90% 50%,#263b32 0,#17212c 40%,#101721 80%);
+    overflow:hidden;
+    position:relative;
 }
 
-.odd {
-    background: #252a2e;
-    border: 1px solid #30363b;
-    color: white;
-    padding: 12px;
-    border-radius: 7px;
-    cursor: pointer;
-    text-align: center;
+.promo small{
+    color:#ffbd00;
+    font-weight:900;
+    letter-spacing:1px;
 }
 
-.odd:hover {
-    background: #35d06f;
-    color: #07140c;
+.promo h1{
+    margin:9px 0;
+    font-size:31px;
+    line-height:1.05;
 }
 
-.odd span {
-    display: block;
-    color: #35d06f;
-    font-weight: bold;
-    margin-top: 4px;
+.promo p{
+    color:#7f899a;
+    max-width:500px;
+    font-size:14px;
 }
 
-.odd:hover span {
-    color: #07140c;
+.promo button{
+    margin-top:8px;
+    border:0;
+    background:#ffbd00;
+    color:#080d14;
+    border-radius:11px;
+    padding:12px 18px;
+    font-weight:900;
 }
 
-.bet-title {
-    padding: 18px;
-    font-size: 18px;
-    font-weight: bold;
-    border-bottom: 1px solid #292d31;
+.promo-icons{
+    position:absolute;
+    right:25px;
+    top:35px;
+    font-size:75px;
+    opacity:.17;
+    transform:rotate(-12deg);
 }
 
-.bet-content {
-    padding: 20px;
+/* ===== TITLE ===== */
+
+.title{
+    padding:0 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:12px;
 }
 
-.empty {
-    text-align: center;
-    color: #777f86;
-    padding: 35px 10px;
+.title h2{
+    margin:5px 0;
+    font-size:23px;
 }
 
-.money {
-    font-size: 25px;
-    font-weight: bold;
-    color: #35d06f;
+.title p{
+    margin:0;
+    color:#697487;
+    font-size:12px;
 }
 
-input {
-    width: 100%;
-    margin-top: 15px;
-    padding: 13px;
-    border-radius: 7px;
-    border: 1px solid #353b40;
-    background: #22272b;
-    color: white;
-    font-size: 15px;
+.search{
+    width:150px;
+    background:#151c27;
+    border:1px solid #293444;
+    border-radius:10px;
+    padding:10px;
+    color:white;
+    outline:none;
 }
 
-.bet-button {
-    width: 100%;
-    margin-top: 12px;
-    padding: 14px;
-    border: 0;
-    border-radius: 7px;
-    background: #35d06f;
-    font-weight: bold;
-    cursor: pointer;
+/* ===== MATCH ===== */
+
+.matches{
+    padding:12px 20px;
 }
 
-@media (max-width: 800px) {
-    .layout {
-        grid-template-columns: 1fr;
+.match{
+    background:
+        linear-gradient(145deg,#181f2b,#121923);
+    border:1px solid #2c3544;
+    border-radius:23px;
+    padding:19px;
+    margin-bottom:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.16);
+}
+
+.match-top{
+    display:flex;
+    justify-content:space-between;
+    color:#8c96a8;
+    font-size:14px;
+    font-weight:800;
+}
+
+.live{
+    color:#ffbf00;
+}
+
+.live-dot{
+    display:inline-block;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#a83948;
+    margin-right:7px;
+}
+
+/* teams */
+
+.teams{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:10px;
+    margin:18px 0;
+}
+
+.team{
+    font-size:21px;
+    font-weight:900;
+}
+
+.team.right{
+    text-align:right;
+}
+
+.score{
+    color:#ffca00;
+    font-size:29px;
+    font-weight:950;
+    white-space:nowrap;
+}
+
+/* odds */
+
+.odds{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.odd{
+    min-height:86px;
+    border:0;
+    border-radius:17px;
+    background:#202a3a;
+    color:#8c96a8;
+    cursor:pointer;
+}
+
+.odd:active{
+    transform:scale(.97);
+}
+
+.odd-name{
+    display:block;
+    font-size:15px;
+    font-weight:800;
+    margin-bottom:4px;
+}
+
+.odd-value{
+    font-size:25px;
+    color:white;
+    font-weight:950;
+}
+
+.up{
+    color:#28d28d;
+    font-size:14px;
+    margin-left:4px;
+}
+
+.down{
+    color:#ff5260;
+    font-size:14px;
+    margin-left:4px;
+}
+
+.progress{
+    height:5px;
+    background:#222c3b;
+    border-radius:10px;
+    margin-top:15px;
+    overflow:hidden;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    background:#ffc000;
+    width:65%;
+}
+
+.details{
+    text-align:center;
+    margin-top:12px;
+    color:#6e7889;
+    font-size:13px;
+    font-style:italic;
+}
+
+/* ===== COUPON ===== */
+
+.coupon{
+    margin:20px;
+    padding:18px;
+    background:#111822;
+    border:1px solid #293443;
+    border-radius:20px;
+}
+
+.coupon-head{
+    display:flex;
+    justify-content:space-between;
+}
+
+.coupon-head button{
+    border:0;
+    background:none;
+    color:#737e91;
+}
+
+.coupon-empty{
+    color:#697487;
+    text-align:center;
+    padding:20px 0;
+}
+
+.coupon-item{
+    padding:12px 0;
+    border-bottom:1px solid #28313e;
+    display:flex;
+    justify-content:space-between;
+}
+
+.coupon-total{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+    color:#8b95a6;
+}
+
+.coupon-total b{
+    color:#ffc000;
+    font-size:21px;
+}
+
+/* ===== BOTTOM ===== */
+
+.bottom{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:82px;
+    background:#0c121b;
+    border-top:1px solid #202938;
+    display:flex;
+    justify-content:space-around;
+    z-index:50;
+}
+
+.bottom button{
+    border:0;
+    background:none;
+    color:#687385;
+    font-size:26px;
+    font-weight:800;
+}
+
+.bottom button span{
+    display:block;
+    font-size:13px;
+    margin-top:3px;
+}
+
+.bottom button.active{
+    color:#ffc000;
+}
+
+/* ===== TOAST ===== */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:100px;
+    transform:translate(-50%,20px);
+    background:#242e3d;
+    border:1px solid #354154;
+    padding:12px 17px;
+    border-radius:12px;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s;
+    z-index:100;
+    white-space:nowrap;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:600px){
+
+    .header{
+        height:105px;
+        padding:0 18px;
+        gap:10px;
     }
 
-    header {
-        padding: 0 15px;
+    .logo{
+        font-size:25px;
     }
 
-    .banner h1 {
-        font-size: 25px;
+    .colors{
+        gap:5px;
+    }
+
+    .color{
+        width:27px;
+        height:27px;
+    }
+
+    .balance{
+        font-size:14px;
+        padding:11px 13px;
+    }
+
+    .promo{
+        margin:16px 18px;
+    }
+
+    .matches{
+        padding:12px 18px;
+    }
+
+    .title{
+        padding:0 18px;
+    }
+
+    .search{
+        width:130px;
+    }
+
+    .team{
+        font-size:19px;
+    }
+
+    .score{
+        font-size:26px;
+    }
+}
+
+@media(max-width:390px){
+
+    .colors{
+        display:none;
+    }
+
+    .balance{
+        margin-left:auto;
+    }
+
+    .odds{
+        gap:7px;
+    }
+
+    .odd{
+        min-height:78px;
+    }
+
+    .odd-value{
+        font-size:21px;
     }
 }
 </style>
@@ -206,178 +534,827 @@ input {
 
 <body>
 
-<header>
-    <div class="logo">FOOTBET</div>
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="logo">
+        BET<span>APP</span>
+    </div>
+
+    <div class="colors">
+        <i class="color black"></i>
+        <i class="color white"></i>
+        <i class="color blue"></i>
+        <i class="color green"></i>
+        <i class="color red"></i>
+    </div>
 
     <div class="balance">
-        Баланс: <span id="balance">10 000 ₽</span>
+        💰 <b>2 390 979</b> ₽
     </div>
+
 </header>
 
-<div class="container">
 
-    <div class="banner">
-        <h1>Футбол</h1>
-        <p>Матчи и виртуальные прогнозы</p>
-    </div>
+<!-- SPORTS -->
 
-    <div class="layout">
+<nav class="sports">
 
-        <main>
+    <button class="sport" data-sport="football">
+        ⚽ Футбол
+    </button>
 
-            <div class="card">
-                <div class="card-title">
-                    ⚽ Сегодня
-                </div>
+    <button class="sport active" data-sport="hockey">
+        🏒 Хоккей
+    </button>
 
-                <div class="match">
+    <button class="sport" data-sport="ufc">
+        🥊 UFC
+    </button>
 
-                    <div class="league">
-                        🇪🇸 Ла Лига
-                    </div>
+</nav>
 
-                    <div class="teams">
-                        <div class="team">Барселона</div>
-                        <div class="vs">20:00</div>
-                        <div class="team">Реал Мадрид</div>
-                    </div>
 
-                    <div class="odds">
-                        <button class="odd" onclick="selectBet('П1', 1.65)">
-                            П1
-                            <span>1.65</span>
-                        </button>
+<!-- LEAGUES -->
 
-                        <button class="odd" onclick="selectBet('X', 3.80)">
-                            X
-                            <span>3.80</span>
-                        </button>
+<div class="leagues">
 
-                        <button class="odd" onclick="selectBet('П2', 4.20)">
-                            П2
-                            <span>4.20</span>
-                        </button>
-                    </div>
+    <button class="league active" data-league="all">
+        Все
+    </button>
 
-                </div>
-            </div>
+    <button class="league" data-league="nhl">
+        🇺🇸 НХЛ
+    </button>
 
-            <div class="card">
+    <button class="league" data-league="khl">
+        🇷🇺 КХЛ
+    </button>
 
-                <div class="match">
+    <button class="league" data-league="epl">
+        🏴 АПЛ
+    </button>
 
-                    <div class="league">
-                        🇬🇧 Премьер-лига
-                    </div>
+    <button class="league" data-league="laliga">
+        🇪🇸 Ла Лига
+    </button>
 
-                    <div class="teams">
-                        <div class="team">Арсенал</div>
-                        <div class="vs">22:00</div>
-                        <div class="team">Челси</div>
-                    </div>
+    <button class="league" data-league="bundesliga">
+        🇩🇪 Бундеслига
+    </button>
 
-                    <div class="odds">
-                        <button class="odd" onclick="selectBet('П1', 1.90)">
-                            П1
-                            <span>1.90</span>
-                        </button>
+    <button class="league" data-league="seriea">
+        🇮🇹 Серия A
+    </button>
 
-                        <button class="odd" onclick="selectBet('X', 3.50)">
-                            X
-                            <span>3.50</span>
-                        </button>
+    <button class="league" data-league="ligue1">
+        🇫🇷 Лига 1
+    </button>
 
-                        <button class="odd" onclick="selectBet('П2', 3.70)">
-                            П2
-                            <span>3.70</span>
-                        </button>
-                    </div>
+    <button class="league" data-league="ucl">
+        🏆 ЛЧ
+    </button>
 
-                </div>
-
-            </div>
-
-        </main>
-
-        <aside class="card">
-
-            <div class="bet-title">
-                🎫 Мой прогноз
-            </div>
-
-            <div class="bet-content">
-
-                <div id="selected" class="empty">
-                    Выберите коэффициент
-                </div>
-
-                <input
-                    id="amount"
-                    type="number"
-                    min="1"
-                    placeholder="Сумма виртуального прогноза"
-                >
-
-                <button class="bet-button" onclick="makeBet()">
-                    Сделать прогноз
-                </button>
-
-            </div>
-
-        </aside>
-
-    </div>
 </div>
+
+
+<!-- PROMO -->
+
+<section class="promo">
+
+    <small>🔥 ЭКСКЛЮЗИВНОЕ ПРОМО</small>
+
+    <h1>
+        Все матчи.<br>
+        Один экран.
+    </h1>
+
+    <p>
+        Футбол и хоккей. LIVE-события,
+        коэффициенты и автоматическое обновление линии.
+    </p>
+
+    <button onclick="scrollToLine()">
+        Смотреть линию
+    </button>
+
+    <div class="promo-icons">
+        ⚽🏒
+    </div>
+
+</section>
+
+
+<!-- TITLE -->
+
+<div class="title" id="line">
+
+    <div>
+        <h2 id="title">🔴 LIVE ХОККЕЙ</h2>
+        <p>Демонстрационные события</p>
+    </div>
+
+    <input
+        class="search"
+        id="search"
+        placeholder="🔎 Команда"
+    >
+
+</div>
+
+
+<!-- MATCHES -->
+
+<section class="matches" id="matches"></section>
+
+
+<!-- COUPON -->
+
+<section class="coupon">
+
+    <div class="coupon-head">
+        <b>🎫 Демо-купон</b>
+        <button onclick="clearCoupon()">Очистить</button>
+    </div>
+
+    <div id="coupon">
+        <div class="coupon-empty">
+            Выбери исход
+        </div>
+    </div>
+
+    <div class="coupon-total">
+        <span>Общий коэффициент</span>
+        <b id="total">0.00</b>
+    </div>
+
+</section>
+
+
+<!-- BOTTOM -->
+
+<footer class="bottom">
+
+    <button class="active">
+        ⚽
+        <span>Линия</span>
+    </button>
+
+    <button onclick="showToast('Раздел игр')">
+        🎮
+        <span>Игры</span>
+    </button>
+
+    <button onclick="showToast('Профиль')">
+        👤
+        <span>Профиль</span>
+    </button>
+
+</footer>
+
+
+<div class="toast" id="toast"></div>
+
 
 <script>
 
-let balance = 10000;
-let selectedOdd = null;
+/* =========================
+   ДЕМО-МАТЧИ
+========================= */
 
-function selectBet(type, odd) {
+const games = [
 
-    selectedOdd = odd;
+    {
+        sport:"hockey",
+        league:"nhl",
+        leagueName:"🏒 НХЛ",
+        team1:"Нью-Джерси",
+        team2:"Колорадо",
+        score1:3,
+        score2:1,
+        period:3,
+        seconds:54,
+        odds:[1.01,null,null]
+    },
 
-    document.getElementById("selected").innerHTML =
-        "Выбрано: <b>" + type + "</b><br><br>" +
-        "Коэффициент: <b>" + odd + "</b>";
+    {
+        sport:"hockey",
+        league:"nhl",
+        leagueName:"🏒 НХЛ",
+        team1:"Вашингтон",
+        team2:"Бостон",
+        score1:4,
+        score2:4,
+        period:3,
+        seconds:54,
+        odds:[4.43,1.51,5.57]
+    },
+
+    {
+        sport:"hockey",
+        league:"khl",
+        leagueName:"🇷🇺 КХЛ",
+        team1:"Торпедо",
+        team2:"Автомобилист",
+        score1:3,
+        score2:1,
+        period:2,
+        seconds:35,
+        odds:[1.05,11.51,28.46]
+    },
+
+    {
+        sport:"hockey",
+        league:"khl",
+        leagueName:"🇷🇺 КХЛ",
+        team1:"Авангард",
+        team2:"Сибирь",
+        score1:3,
+        score2:0,
+        period:2,
+        seconds:35,
+        odds:[1.01,36.89,124.54]
+    },
+
+    {
+        sport:"hockey",
+        league:"khl",
+        leagueName:"🇷🇺 КХЛ",
+        team1:"Локомотив",
+        team2:"Металлург Мг",
+        score1:3,
+        score2:3,
+        period:2,
+        seconds:35,
+        odds:[2.25,3.31,3.09]
+    },
+
+    {
+        sport:"football",
+        league:"epl",
+        leagueName:"🏴 АПЛ",
+        team1:"Арсенал",
+        team2:"Челси",
+        score1:1,
+        score2:0,
+        period:1,
+        seconds:74,
+        odds:[1.72,3.60,4.70]
+    },
+
+    {
+        sport:"football",
+        league:"laliga",
+        leagueName:"🇪🇸 Ла Лига",
+        team1:"Реал Мадрид",
+        team2:"Барселона",
+        score1:1,
+        score2:1,
+        period:1,
+        seconds:61,
+        odds:[2.15,3.70,2.90]
+    },
+
+    {
+        sport:"football",
+        league:"bundesliga",
+        leagueName:"🇩🇪 Бундеслига",
+        team1:"Бавария",
+        team2:"Дортмунд",
+        score1:2,
+        score2:1,
+        period:1,
+        seconds:49,
+        odds:[1.55,4.30,5.40]
+    },
+
+    {
+        sport:"football",
+        league:"seriea",
+        leagueName:"🇮🇹 Серия A",
+        team1:"Интер",
+        team2:"Милан",
+        score1:0,
+        score2:0,
+        period:0,
+        seconds:0,
+        odds:[2.05,3.25,3.10]
+    },
+
+    {
+        sport:"football",
+        league:"ligue1",
+        leagueName:"🇫🇷 Лига 1",
+        team1:"ПСЖ",
+        team2:"Марсель",
+        score1:0,
+        score2:0,
+        period:0,
+        seconds:0,
+        odds:[1.45,4.70,6.20]
+    },
+
+    {
+        sport:"football",
+        league:"ucl",
+        leagueName:"🏆 Лига чемпионов",
+        team1:"Манчестер Сити",
+        team2:"Реал Мадрид",
+        score1:0,
+        score2:0,
+        period:0,
+        seconds:0,
+        odds:[2.00,3.80,3.25]
+    }
+
+];
+
+
+/* =========================
+   СОСТОЯНИЕ
+========================= */
+
+let currentSport = "hockey";
+let currentLeague = "all";
+
+let coupon = [];
+
+
+/* =========================
+   РЕНДЕР
+========================= */
+
+function render(){
+
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    let list = games.filter(game => {
+
+        if(game.sport !== currentSport)
+            return false;
+
+        if(
+            currentLeague !== "all" &&
+            game.league !== currentLeague
+        )
+            return false;
+
+        const text =
+            (
+                game.team1 +
+                " " +
+                game.team2 +
+                " " +
+                game.leagueName
+            ).toLowerCase();
+
+        return text.includes(search);
+
+    });
+
+
+    document.getElementById("title").innerText =
+        currentSport === "hockey"
+        ? "🔴 LIVE ХОККЕЙ"
+        : "⚽ ФУТБОЛ";
+
+
+    document.getElementById("matches").innerHTML =
+        list.map((game,index)=>createMatch(game,index)).join("");
+
+
+    document
+        .querySelectorAll(".odd")
+        .forEach(button=>{
+
+            button.onclick=()=>{
+
+                addCoupon(
+                    Number(button.dataset.index),
+                    Number(button.dataset.odd)
+                );
+
+            };
+
+        });
+
 }
 
-function makeBet() {
 
-    const amount = Number(document.getElementById("amount").value);
+/* =========================
+   КАРТОЧКА МАТЧА
+========================= */
 
-    if (!selectedOdd) {
-        alert("Сначала выберите коэффициент");
-        return;
-    }
+function createMatch(game,index){
 
-    if (!amount || amount <= 0) {
-        alert("Введите сумму");
-        return;
-    }
+    const mins =
+        Math.floor(game.seconds/60);
 
-    if (amount > balance) {
-        alert("Недостаточно виртуального баланса");
-        return;
-    }
+    const secs =
+        String(game.seconds%60).padStart(2,"0");
 
-    balance -= amount;
 
-    const possibleWin = amount * selectedOdd;
+    const isLive =
+        game.period > 0;
 
-    document.getElementById("balance").textContent =
-        balance.toLocaleString("ru-RU") + " ₽";
 
-    document.getElementById("selected").innerHTML =
-        "Прогноз принят!<br><br>" +
-        "Сумма: <b>" + amount.toLocaleString("ru-RU") + " ₽</b><br>" +
-        "Возможный виртуальный выигрыш: <b>" +
-        possibleWin.toLocaleString("ru-RU") +
-        " ₽</b>";
+    let timer =
+        isLive
+        ? `<span class="live">
+             <i class="live-dot"></i>
+             П${game.period} • ${mins}:${secs}
+           </span>`
+        : "⏱ Предматч";
 
-    document.getElementById("amount").value = "";
+
+    const names=["1","X","2"];
+
+
+    const odds =
+        game.odds.map((odd,i)=>{
+
+            if(odd === null){
+
+                return `
+                <button class="odd" disabled>
+                    <span class="odd-name">${names[i]}</span>
+                    <span class="odd-value">—</span>
+                </button>
+                `;
+
+            }
+
+
+            /*
+              Небольшое демонстрационное
+              движение коэффициента.
+            */
+
+            let change =
+                (Math.random()>.5 ? 1 : -1);
+
+
+            let value =
+                Math.max(
+                    1.01,
+                    odd + change*0.01
+                ).toFixed(2);
+
+
+            return `
+            <button
+                class="odd"
+                data-index="${index}"
+                data-odd="${value}"
+            >
+
+                <span class="odd-name">
+                    ${names[i]}
+                </span>
+
+                <span class="odd-value">
+                    ${value}
+                </span>
+
+                <span class="${change>0?'up':'down'}">
+                    ${change>0?'↑':'↓'}
+                </span>
+
+            </button>
+            `;
+
+        }).join("");
+
+
+    const progress =
+        Math.min(
+            100,
+            Math.round(game.seconds/180*100)
+        );
+
+
+    return `
+
+    <article class="match">
+
+        <div class="match-top">
+
+            <span>
+                ${game.leagueName}
+            </span>
+
+            <span>
+                ${timer}
+            </span>
+
+        </div>
+
+
+        <div class="teams">
+
+            <div class="team">
+                ${game.team1}
+            </div>
+
+            <div class="score">
+                ${game.score1}:${game.score2}
+            </div>
+
+            <div class="team right">
+                ${game.team2}
+            </div>
+
+        </div>
+
+
+        <div class="odds">
+
+            ${odds}
+
+        </div>
+
+
+        <div class="progress">
+            <span style="width:${progress}%"></span>
+        </div>
+
+
+        <div class="details">
+            ☝️ Тапни — открыть все рынки
+        </div>
+
+    </article>
+
+    `;
+
 }
+
+
+/* =========================
+   КУПОН
+========================= */
+
+function addCoupon(index,oddIndex){
+
+    const game =
+        games.filter(
+            g=>g.sport===currentSport &&
+            (
+                currentLeague==="all" ||
+                g.league===currentLeague
+            )
+        )[index];
+
+    if(!game)
+        return;
+
+
+    const names=["П1","X","П2"];
+
+    const odd =
+        Number(game.odds[oddIndex]);
+
+
+    coupon.push({
+
+        team:
+            `${game.team1} — ${game.team2}`,
+
+        market:
+            names[oddIndex],
+
+        odd:odd
+
+    });
+
+
+    renderCoupon();
+
+    showToast("Исход добавлен в демо-купон");
+}
+
+
+function renderCoupon(){
+
+    const box =
+        document.getElementById("coupon");
+
+    if(coupon.length===0){
+
+        box.innerHTML =
+            `<div class="coupon-empty">
+                Выбери исход
+             </div>`;
+
+        document.getElementById("total")
+            .innerText="0.00";
+
+        return;
+
+    }
+
+
+    box.innerHTML =
+        coupon.map(item=>`
+
+        <div class="coupon-item">
+
+            <span>
+                ${item.team}
+                <br>
+                <small>${item.market}</small>
+            </span>
+
+            <b>
+                ${item.odd.toFixed(2)}
+            </b>
+
+        </div>
+
+        `).join("");
+
+
+    const total =
+        coupon.reduce(
+            (sum,item)=>sum*item.odd,
+            1
+        );
+
+
+    document.getElementById("total")
+        .innerText=total.toFixed(2);
+
+}
+
+
+function clearCoupon(){
+
+    coupon=[];
+
+    renderCoupon();
+
+}
+
+
+/* =========================
+   ФИЛЬТР СПОРТА
+========================= */
+
+document
+.querySelectorAll(".sport")
+.forEach(button=>{
+
+    button.onclick=()=>{
+
+        document
+        .querySelectorAll(".sport")
+        .forEach(x=>
+            x.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        currentSport =
+            button.dataset.sport;
+
+        currentLeague="all";
+
+        document
+        .querySelectorAll(".league")
+        .forEach(x=>
+            x.classList.toggle(
+                "active",
+                x.dataset.league==="all"
+            )
+        );
+
+        render();
+
+    };
+
+});
+
+
+/* =========================
+   ФИЛЬТР ЛИГ
+========================= */
+
+document
+.querySelectorAll(".league")
+.forEach(button=>{
+
+    button.onclick=()=>{
+
+        document
+        .querySelectorAll(".league")
+        .forEach(x=>
+            x.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        currentLeague =
+            button.dataset.league;
+
+        render();
+
+    };
+
+});
+
+
+/* =========================
+   ПОИСК
+========================= */
+
+document
+.getElementById("search")
+.addEventListener(
+    "input",
+    render
+);
+
+
+/* =========================
+   LIVE-ТАЙМЕР
+========================= */
+
+setInterval(()=>{
+
+    games.forEach(game=>{
+
+        if(game.period > 0){
+
+            game.seconds++;
+
+            /*
+              Футбол/хоккей в этой
+              демо-версии идут около
+              3 минут.
+            */
+
+            if(game.seconds >= 180){
+
+                game.period=0;
+                game.seconds=0;
+
+            }
+
+        }
+
+    });
+
+
+    render();
+
+},1000);
+
+
+/* =========================
+   PROMO
+========================= */
+
+function scrollToLine(){
+
+    document
+    .getElementById("line")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(text){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.innerText=text;
+
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+    },1600);
+
+}
+
+
+/* START */
+
+render();
 
 </script>
 

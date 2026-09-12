@@ -2,271 +2,222 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#07090e">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080a10">
 <title>SPORTZONE</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#07090e;
-  --card:#10141d;
-  --card2:#151a24;
-  --line:#252b38;
-  --text:#f5f7fb;
-  --muted:#8c95a5;
-  --blue:#4d7cff;
-  --green:#32d583;
-  --red:#ff5b68;
-  --gold:#ffc857;
-}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  min-height:100vh;
-}
+*{box-sizing:border-box}
+html,body{margin:0;background:#080a10;color:#f5f7fb;font-family:Arial,sans-serif}
 button,input{font:inherit}
-button{cursor:pointer;border:0;color:inherit}
-.app{max-width:1180px;margin:auto;padding-bottom:90px}
+button{cursor:pointer}
+.app{max-width:1100px;margin:auto;padding-bottom:90px}
 
 /* HEADER */
 header{
-  height:72px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 18px;
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:rgba(7,9,14,.94);
-  backdrop-filter:blur(18px);
+ height:70px;padding:0 18px;display:flex;align-items:center;
+ justify-content:space-between;border-bottom:1px solid #252b36;
+ position:sticky;top:0;z-index:50;background:rgba(8,10,16,.95);
+ backdrop-filter:blur(15px)
 }
-.logo{font-size:23px;font-weight:900;letter-spacing:-1px}
-.logo span{color:var(--blue)}
-.header-right{display:flex;gap:9px;align-items:center}
-.icon-btn{
-  width:42px;height:42px;border-radius:13px;
-  background:var(--card);border:1px solid var(--line);
-  display:grid;place-items:center;font-size:18px;
-}
-.points{
-  padding:10px 13px;border-radius:12px;
-  background:#121b2d;border:1px solid #26385e;
-  font-weight:800;color:#8eafff;
-}
+.logo{font-size:23px;font-weight:900}
+.logo i{color:#4d7cff;font-style:normal}
+.headerRight{display:flex;align-items:center;gap:8px}
+.stars{background:#151c2c;border:1px solid #2b3957;padding:10px 13px;border-radius:12px;font-weight:800;color:#ffd45a}
+.avatarBtn{width:42px;height:42px;border:1px solid #293142;background:#121620;border-radius:12px;color:white}
 
-/* NAV */
-.sports{
-  display:flex;gap:9px;padding:15px 18px;
-  overflow-x:auto;scrollbar-width:none;
+/* SPORTS */
+.sports{display:flex;gap:8px;padding:15px 18px;overflow:auto}
+.sports button{
+ border:1px solid #272e3a;background:#11151d;color:#8e97a8;
+ padding:11px 17px;border-radius:12px;font-weight:800;white-space:nowrap
 }
-.sports::-webkit-scrollbar{display:none}
-.sport{
-  flex:0 0 auto;
-  padding:11px 17px;border-radius:13px;
-  background:var(--card);border:1px solid var(--line);
-  color:var(--muted);font-weight:750;
-}
-.sport.active{background:var(--blue);color:white;border-color:var(--blue)}
+.sports button.active{background:#4d7cff;color:white;border-color:#4d7cff}
 
 /* HERO */
 .hero{
-  margin:4px 18px 18px;
-  min-height:190px;
-  border-radius:22px;
-  padding:25px;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 85% 20%,rgba(77,124,255,.38),transparent 35%),
-    linear-gradient(135deg,#111827,#0b0e15);
-  border:1px solid #283348;
+ margin:4px 18px 18px;padding:25px;border-radius:22px;
+ border:1px solid #293652;
+ background:radial-gradient(circle at 85% 20%,#294ca044,transparent 35%),#10151f
 }
-.hero h1{font-size:31px;max-width:550px;line-height:1.08}
-.hero p{color:var(--muted);margin-top:10px;max-width:560px}
-.hero .hero-btn{
-  margin-top:19px;padding:11px 17px;border-radius:12px;
-  background:white;color:#0a0c11;font-weight:850;
+.hero h1{font-size:29px;margin:0 0 9px}
+.hero p{color:#8e97a8;margin:0;line-height:1.5}
+.hero button{
+ margin-top:18px;border:0;background:#fff;color:#090b10;
+ padding:11px 17px;border-radius:11px;font-weight:900
 }
 
 /* SEARCH */
-.search{
-  margin:0 18px 15px;
-  position:relative;
-}
+.search{margin:0 18px 18px;position:relative}
 .search input{
-  width:100%;height:48px;border-radius:14px;
-  border:1px solid var(--line);background:var(--card);
-  color:white;padding:0 16px 0 45px;outline:none;
+ width:100%;height:48px;border-radius:13px;
+ border:1px solid #272e3a;background:#11151d;color:white;
+ padding:0 15px 0 43px;outline:0
 }
-.search input:focus{border-color:#4969b8}
-.search-icon{position:absolute;left:16px;top:13px;color:var(--muted)}
+.search span{position:absolute;left:15px;top:14px;color:#7d8798}
 
-/* SECTION */
-.section{padding:0 18px;margin-top:21px}
-.section-head{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:12px;
-}
-.section-head h2{font-size:19px}
-.section-head button{background:none;color:#7e9fff;font-weight:700}
+/* CONTENT */
+.section{padding:0 18px;margin-top:20px}
+.titleRow{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.titleRow h2{margin:0;font-size:20px}
+.titleRow button{background:none;border:0;color:#7ea0ff;font-weight:800}
 
-/* FILTERS */
-.filters{
-  display:flex;gap:8px;overflow:auto;scrollbar-width:none;
-  margin-bottom:13px;
-}
+.filters{display:flex;gap:8px;overflow:auto;margin-bottom:13px}
 .filter{
-  flex:0 0 auto;padding:8px 13px;border-radius:10px;
-  background:var(--card);border:1px solid var(--line);
-  color:var(--muted);font-size:13px;font-weight:700;
+ border:1px solid #272e3a;background:#11151d;color:#8e97a8;
+ padding:8px 12px;border-radius:10px;white-space:nowrap;font-size:13px
 }
-.filter.active{color:white;border-color:#4567bd;background:#17223c}
+.filter.active{background:#182541;color:white;border-color:#4d7cff}
 
-/* MATCH */
-.matches{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
-.match{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:17px;
-  padding:15px;
-  transition:.18s;
+/* MATCHES */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+.card{
+ background:#11151d;border:1px solid #252c39;border-radius:17px;
+ padding:15px;transition:.15s
 }
-.match:hover{transform:translateY(-2px);border-color:#35425c}
-.match-top{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
-.live{color:var(--green);font-weight:850}
-.match-teams{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
-.team{text-align:center;width:38%;font-weight:750}
-.team-logo{
-  width:45px;height:45px;border-radius:50%;
-  display:grid;place-items:center;
-  background:var(--card2);margin:0 auto 7px;
-  font-size:21px;
+.card:hover{transform:translateY(-2px);border-color:#394968}
+.top{display:flex;justify-content:space-between;font-size:12px;color:#7f8999}
+.live{color:#32d583;font-weight:900}
+.teams{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
+.team{text-align:center;width:37%;font-weight:800;font-size:13px}
+.badge{
+ width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
+ background:#1a202c;margin:0 auto 8px;font-size:22px
 }
-.score{text-align:center}
-.score-main{font-size:27px;font-weight:900}
-.time{font-size:11px;color:var(--muted);margin-top:2px}
-.match-bottom{
-  display:flex;justify-content:space-between;
-  align-items:center;margin-top:15px;padding-top:12px;
-  border-top:1px solid var(--line);
+.middle{text-align:center}
+.score{font-size:25px;font-weight:950}
+.small{font-size:11px;color:#7f8999;margin-top:3px}
+.bottom{
+ border-top:1px solid #242b36;margin-top:14px;padding-top:11px;
+ display:flex;justify-content:space-between;align-items:center
 }
-.stat{font-size:12px;color:var(--muted)}
-.open{
-  padding:8px 11px;border-radius:10px;
-  background:#19243c;color:#8eafff;font-size:12px;font-weight:800;
+.openBtn{
+ border:0;background:#182541;color:#8eafff;
+ padding:8px 11px;border-radius:9px;font-size:12px;font-weight:800
 }
+.starBtn{background:none;border:0;font-size:20px;color:#727c8d}
+.starBtn.on{color:#ffd45a}
 
 /* UFC */
 .fight{
-  background:var(--card);border:1px solid var(--line);
-  border-radius:17px;padding:16px;margin-bottom:10px;
+ background:#11151d;border:1px solid #252c39;border-radius:17px;
+ padding:16px;margin-bottom:10px
 }
-.fight-top{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
-.fighters{display:flex;align-items:center;justify-content:space-between;text-align:center;margin-top:16px}
-.fighter{width:39%;font-weight:850}
-.avatar{
-  width:60px;height:60px;border-radius:50%;
-  background:linear-gradient(145deg,#303846,#11151d);
-  display:grid;place-items:center;margin:auto auto 8px;
-  font-size:25px;
+.fighters{display:flex;justify-content:space-between;align-items:center;text-align:center;margin-top:18px}
+.fighter{width:40%;font-weight:850}
+.face{
+ width:64px;height:64px;border-radius:50%;margin:auto auto 8px;
+ display:grid;place-items:center;background:#202633;font-size:27px
 }
-.vs{font-size:12px;color:var(--muted);font-weight:900}
+.vs{color:#7d8798;font-weight:900}
 
 /* EMPTY */
 .empty{
-  text-align:center;padding:45px 20px;
-  color:var(--muted);background:var(--card);
-  border:1px dashed var(--line);border-radius:17px;
+ padding:45px 15px;text-align:center;color:#7f8999;
+ border:1px dashed #303746;border-radius:16px
 }
 
 /* BOTTOM */
 .bottom{
-  position:fixed;bottom:0;left:0;right:0;z-index:30;
-  height:72px;background:rgba(9,11,17,.96);
-  border-top:1px solid var(--line);
-  backdrop-filter:blur(18px);
+ position:fixed;left:0;right:0;bottom:0;height:70px;z-index:60;
+ background:rgba(9,11,17,.96);border-top:1px solid #252b36;
+ backdrop-filter:blur(16px)
 }
-.bottom-inner{
-  max-width:700px;margin:auto;height:100%;
-  display:flex;justify-content:space-around;
-}
+.bottomInner{max-width:650px;margin:auto;height:100%;display:flex}
 .nav{
-  width:25%;background:none;color:#737c8d;
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;gap:4px;font-size:11px;font-weight:700;
+ flex:1;background:none;border:0;color:#70798a;font-size:11px;
+ font-weight:800;display:flex;flex-direction:column;align-items:center;
+ justify-content:center;gap:4px
 }
-.nav span:first-child{font-size:20px}
+.nav b{font-size:20px}
 .nav.active{color:white}
-.nav.active span:first-child{filter:drop-shadow(0 0 8px #4d7cff)}
 
 /* MODAL */
 .modal{
-  position:fixed;inset:0;z-index:100;
-  display:none;align-items:flex-end;
-  background:rgba(0,0,0,.7);
+ display:none;position:fixed;inset:0;z-index:100;
+ background:#0009;align-items:flex-end
 }
 .modal.show{display:flex}
 .sheet{
-  width:100%;max-height:88vh;overflow:auto;
-  background:#0d1119;border-top:1px solid #30394b;
-  border-radius:25px 25px 0 0;
-  padding:22px 18px 35px;
-  animation:up .22s ease;
+ width:100%;max-height:90vh;overflow:auto;
+ background:#0d1118;border-top:1px solid #303847;
+ border-radius:24px 24px 0 0;padding:21px 18px 35px
 }
-@keyframes up{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.sheet-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.modalHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
 .close{
-  width:35px;height:35px;border-radius:10px;
-  background:var(--card2);font-size:19px;
+ width:37px;height:37px;border:0;border-radius:10px;
+ background:#181e28;color:white;font-size:21px
 }
-.detail-score{text-align:center;margin:15px 0 25px}
-.detail-score .teams{font-size:18px;font-weight:850}
-.big-score{font-size:45px;font-weight:950;margin:8px}
-.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
-.detail-stat{
-  padding:14px 8px;background:var(--card);
-  border:1px solid var(--line);border-radius:13px;text-align:center;
+
+/* DETAIL */
+.detail{text-align:center}
+.detailTeams{font-size:18px;font-weight:900}
+.detailScore{font-size:43px;font-weight:950;margin:10px}
+.detailTime{color:#7f8999}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
+.stat{background:#141923;border:1px solid #252d3b;padding:14px 5px;border-radius:12px}
+.stat b{font-size:18px;display:block}.stat span{font-size:11px;color:#7f8999}
+
+/* PREDICTIONS */
+.question{
+ background:#141923;border:1px solid #272f3d;border-radius:14px;
+ padding:14px;margin-top:10px
 }
-.detail-stat b{display:block;font-size:19px}
-.detail-stat span{font-size:11px;color:var(--muted)}
-.login-form input{
-  width:100%;height:48px;margin-bottom:10px;
-  border-radius:12px;border:1px solid var(--line);
-  background:var(--card);color:white;padding:0 14px;outline:none;
+.question strong{display:block;margin-bottom:10px}
+.options{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.option{
+ border:1px solid #303849;background:#10151d;color:#c8cfda;
+ border-radius:10px;padding:10px;font-weight:750
+}
+.option.selected{background:#1b315f;border-color:#5b82e8;color:white}
+.locked{opacity:.45;pointer-events:none}
+.submit{
+ width:100%;height:48px;border:0;border-radius:12px;
+ background:#4d7cff;color:white;font-weight:900;margin-top:15px
+}
+
+/* LOGIN */
+.form input{
+ width:100%;height:48px;margin-bottom:9px;padding:0 13px;
+ border:1px solid #2a3140;background:#131821;color:white;
+ border-radius:11px;outline:0
 }
 .primary{
-  width:100%;height:48px;border-radius:12px;
-  background:var(--blue);font-weight:850;margin-top:5px;
+ width:100%;height:48px;background:#4d7cff;
+ border:0;border-radius:11px;color:white;font-weight:900
 }
-.profile-card{
-  background:linear-gradient(135deg,#141d31,#0e131c);
-  border:1px solid #293753;border-radius:20px;
-  padding:20px;margin-bottom:12px;
-}
-.profile-avatar{
-  width:64px;height:64px;border-radius:18px;
-  background:#24345b;display:grid;place-items:center;
-  font-size:28px;margin-bottom:12px;
-}
-.profile-name{font-size:22px;font-weight:900}
-.profile-sub{color:var(--muted);font-size:13px;margin-top:3px}
-.profile-row{
-  display:flex;justify-content:space-between;
-  padding:15px 0;border-bottom:1px solid var(--line);
-}
-.profile-row:last-child{border:0}
+.switch{background:none;border:0;color:#86a5ff;margin-top:13px;width:100%}
 
-/* DESKTOP */
-@media(max-width:700px){
-  .matches{grid-template-columns:1fr}
-  .hero h1{font-size:26px}
+/* PROFILE */
+.profile{
+ background:linear-gradient(135deg,#18233b,#10151e);
+ border:1px solid #2b3c60;border-radius:19px;padding:20px
 }
-@media(min-width:900px){
-  .bottom{position:sticky;bottom:0;margin-top:30px}
+.profileAvatar{
+ width:62px;height:62px;border-radius:17px;background:#294273;
+ display:grid;place-items:center;font-size:27px;margin-bottom:12px
+}
+.profileName{font-size:22px;font-weight:950}
+.profileMuted{color:#8993a4;font-size:13px;margin-top:4px}
+.row{
+ display:flex;justify-content:space-between;padding:16px 2px;
+ border-bottom:1px solid #252c38
+}
+.row:last-child{border:0}
+
+/* TOAST */
+.toast{
+ position:fixed;left:50%;bottom:86px;z-index:200;
+ transform:translate(-50%,20px);opacity:0;
+ background:#f3f5f8;color:#090b10;padding:11px 16px;
+ border-radius:12px;font-weight:850;pointer-events:none;
+ transition:.25s
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:700px){
+ .grid{grid-template-columns:1fr}
+ .hero h1{font-size:25px}
 }
 </style>
 </head>
@@ -276,443 +227,556 @@ header{
 <div class="app">
 
 <header>
-  <div class="logo">SPORT<span>ZONE</span></div>
-  <div class="header-right">
-    <div class="points" id="points">⭐ 1 000</div>
-    <button class="icon-btn" onclick="openProfile()">👤</button>
-  </div>
+ <div class="logo">SPORT<i>ZONE</i></div>
+ <div class="headerRight">
+   <div class="stars" id="stars">⭐ 1 000</div>
+   <button class="avatarBtn" onclick="profile()">👤</button>
+ </div>
 </header>
 
 <div class="sports">
-  <button class="sport active" data-sport="football" onclick="setSport('football',this)">⚽ Футбол</button>
-  <button class="sport" data-sport="hockey" onclick="setSport('hockey',this)">🏒 Хоккей</button>
-  <button class="sport" data-sport="ufc" onclick="setSport('ufc',this)">🥊 UFC</button>
-  <button class="sport" data-sport="favorites" onclick="setSport('favorites',this)">⭐ Избранное</button>
+ <button class="active" onclick="sport('football',this)">⚽ Футбол</button>
+ <button onclick="sport('hockey',this)">🏒 Хоккей</button>
+ <button onclick="sport('ufc',this)">🥊 UFC</button>
+ <button onclick="favorites()">⭐ Избранное</button>
 </div>
 
 <div class="hero">
-  <h1 id="heroTitle">Весь спорт — в одном месте</h1>
-  <p id="heroText">Матчи, LIVE, результаты, статистика и турниры в едином интерфейсе.</p>
-  <button class="hero-btn" onclick="showLive()">Смотреть LIVE</button>
+ <h1 id="heroTitle">Спорт в одном месте</h1>
+ <p id="heroText">
+  Матчи, LIVE, статистика и прогнозы для тренировки.
+ </p>
+ <button onclick="live()">🔴 Смотреть LIVE</button>
 </div>
 
 <div class="search">
-  <span class="search-icon">🔎</span>
-  <input id="search" placeholder="Поиск команды, бойца или турнира..." oninput="render()">
+ <span>🔎</span>
+ <input id="search" placeholder="Команда, боец или турнир..." oninput="render()">
 </div>
 
 <main id="content"></main>
 
 </div>
 
-<nav class="bottom">
-  <div class="bottom-inner">
-    <button class="nav active" onclick="home(this)">
-      <span>⌂</span>Главная
-    </button>
-    <button class="nav" onclick="showLive(this)">
-      <span>🔴</span>LIVE
-    </button>
-    <button class="nav" onclick="openFavorites(this)">
-      <span>★</span>Избранное
-    </button>
-    <button class="nav" onclick="openProfile(this)">
-      <span>●</span>Профиль
-    </button>
-  </div>
-</nav>
-
-<!-- MODAL -->
-<div class="modal" id="modal" onclick="closeOutside(event)">
-  <div class="sheet" id="sheet"></div>
+<div class="bottom">
+ <div class="bottomInner">
+  <button class="nav active" onclick="home(this)"><b>⌂</b>Главная</button>
+  <button class="nav" onclick="live(this)"><b>🔴</b>LIVE</button>
+  <button class="nav" onclick="favorites(this)"><b>★</b>Избранное</button>
+  <button class="nav" onclick="profile(this)"><b>●</b>Профиль</button>
+ </div>
 </div>
+
+<div class="modal" id="modal" onclick="outside(event)">
+ <div class="sheet" id="sheet"></div>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <script>
 /* =========================
-   DATA
+   ДАННЫЕ
 ========================= */
 
 const football=[
- {id:1,league:"АПЛ",country:"🏴",home:"Ливерпуль",away:"Арсенал",a:"🔴",b:"🔴",score:"2 : 1",time:"67'",live:true,stats:["57%","11","4"]},
- {id:2,league:"Ла Лига",country:"🇪🇸",home:"Барселона",away:"Атлетико",a:"🔵",b:"🔴",score:"1 : 1",time:"52'",live:true,stats:["61%","9","3"]},
- {id:3,league:"Бундеслига",country:"🇩🇪",home:"Бавария",away:"Дортмунд",a:"🔴",b:"🟡",score:"0 : 0",time:"28'",live:true,stats:["54%","5","2"]},
- {id:4,league:"Серия А",country:"🇮🇹",home:"Милан",away:"Интер",a:"🔴",b:"🔵",score:"2 : 2",time:"Завершён",live:false,stats:["49%","13","6"]},
- {id:5,league:"РПЛ",country:"🇷🇺",home:"Зенит",away:"Спартак",a:"🔵",b:"🔴",score:"— : —",time:"Сегодня 20:30",live:false,stats:["—","—","—"]},
- {id:6,league:"Лига 1",country:"🇫🇷",home:"ПСЖ",away:"Лион",a:"🔵",b:"🔴",score:"— : —",time:"Сегодня 22:45",live:false,stats:["—","—","—"]}
+ {id:1,l:"АПЛ",home:"Ливерпуль",away:"Арсенал",a:"🔴",b:"🔴",score:"2 : 1",time:"67'",live:true},
+ {id:2,l:"Ла Лига",home:"Барселона",away:"Атлетико",a:"🔵",b:"🔴",score:"1 : 1",time:"52'",live:true},
+ {id:3,l:"Бундеслига",home:"Бавария",away:"Дортмунд",a:"🔴",b:"🟡",score:"0 : 0",time:"28'",live:true},
+ {id:4,l:"Серия А",home:"Милан",away:"Интер",a:"🔴",b:"🔵",score:"2 : 2",time:"Завершён",live:false},
+ {id:5,l:"РПЛ",home:"Зенит",away:"Спартак",a:"🔵",b:"🔴",score:"— : —",time:"Сегодня 20:30",live:false},
+ {id:6,l:"Лига 1",home:"ПСЖ",away:"Лион",a:"🔵",b:"🔴",score:"— : —",time:"Сегодня 22:45",live:false},
+ {id:7,l:"Ла Лига",home:"Реал Мадрид",away:"Севилья",a:"⚪",b:"🔴",score:"— : —",time:"Завтра 21:00",live:false},
+ {id:8,l:"АПЛ",home:"Челси",away:"Тоттенхэм",a:"🔵",b:"⚪",score:"— : —",time:"Завтра 19:30",live:false}
 ];
 
 const hockey=[
- {id:101,league:"КХЛ",country:"🇷🇺",home:"СКА",away:"ЦСКА",a:"🏒",b:"🏒",score:"3 : 2",time:"2 период • 14:22",live:true,stats:["18","15","7"]},
- {id:102,league:"КХЛ",country:"🇷🇺",home:"Ак Барс",away:"Динамо М",a:"🟢",b:"🔵",score:"1 : 1",time:"1 период • 08:41",live:true,stats:["11","9","4"]},
- {id:103,league:"NHL",country:"🇺🇸",home:"Boston",away:"Rangers",a:"🐻",b:"🔵",score:"4 : 3",time:"Завершён",live:false,stats:["31","28","12"]},
- {id:104,league:"NHL",country:"🇺🇸",home:"Toronto",away:"Detroit",a:"🍁",b:"🔴",score:"— : —",time:"Завтра 02:00",live:false,stats:["—","—","—"]}
+ {id:101,l:"КХЛ",home:"СКА",away:"ЦСКА",a:"🏒",b:"🏒",score:"3 : 2",time:"2 период • 14:22",live:true},
+ {id:102,l:"КХЛ",home:"Ак Барс",away:"Динамо М",a:"🟢",b:"🔵",score:"1 : 1",time:"1 период • 08:41",live:true},
+ {id:103,l:"КХЛ",home:"Локомотив",away:"Спартак",a:"🚂",b:"🔴",score:"2 : 0",time:"Завершён",live:false},
+ {id:104,l:"NHL",home:"Boston",away:"Rangers",a:"🐻",b:"🔵",score:"4 : 3",time:"Завершён",live:false},
+ {id:105,l:"NHL",home:"Toronto",away:"Detroit",a:"🍁",b:"🔴",score:"— : —",time:"Завтра 02:00",live:false}
 ];
 
 const ufc=[
- {id:201,league:"UFC • Main Event",home:"Islam Makhachev",away:"Charles Oliveira",a:"🥊",b:"🥊",score:"VS",time:"5 раундов",live:false,stats:["LW","—","—"]},
- {id:202,league:"UFC • Co-Main Event",home:"Jon Jones",away:"Tom Aspinall",a:"🥊",b:"🥊",score:"VS",time:"5 раундов",live:false,stats:["HW","—","—"]},
- {id:203,league:"UFC",home:"Max Holloway",away:"Justin Gaethje",a:"🥊",b:"🥊",score:"3 : 0",time:"Завершён",live:false,stats:["82","61","3"]},
- {id:204,league:"UFC",home:"Alex Pereira",away:"Jamahal Hill",a:"🥊",b:"🥊",score:"—",time:"Скоро",live:false,stats:["LHW","—","—"]}
+ {id:201,l:"UFC • Main Event",home:"Islam Makhachev",away:"Charles Oliveira",a:"🥊",b:"🥊",score:"VS",time:"5 раундов",live:false},
+ {id:202,l:"UFC • Co-Main Event",home:"Jon Jones",away:"Tom Aspinall",a:"🥊",b:"🥊",score:"VS",time:"5 раундов",live:false},
+ {id:203,l:"UFC",home:"Max Holloway",away:"Justin Gaethje",a:"🥊",b:"🥊",score:"3 : 0",time:"Завершён",live:false},
+ {id:204,l:"UFC",home:"Alex Pereira",away:"Jamahal Hill",a:"🥊",b:"🥊",score:"VS",time:"Скоро",live:false}
 ];
 
-let sport="football";
-let favoriteIds=JSON.parse(localStorage.getItem("favorites")||"[]");
-let points=Number(localStorage.getItem("points")||1000);
+let current="football";
+let fav=JSON.parse(localStorage.getItem("fav")||"[]");
+let stars=Number(localStorage.getItem("stars")||1000);
 let username=localStorage.getItem("username")||"Гость";
+let answers={};
 
 /* =========================
-   HELPERS
+   ОСНОВНЫЕ ФУНКЦИИ
 ========================= */
 
-function data(){
-  if(sport==="football")return football;
-  if(sport==="hockey")return hockey;
-  if(sport==="ufc")return ufc;
-  return [...football,...hockey,...ufc].filter(x=>favoriteIds.includes(x.id));
+function all(){
+ return [...football,...hockey,...ufc];
 }
 
-function escapeHTML(str){
-  return String(str).replace(/[&<>"']/g,m=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-  }[m]));
+function find(id){
+ return all().find(x=>x.id===id);
 }
+
+function esc(x){
+ return String(x).replace(/[&<>"']/g,m=>({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+ }[m]));
+}
+
+function setStars(){
+ document.getElementById("stars").textContent=
+  "⭐ "+stars.toLocaleString("ru-RU");
+}
+
+function save(){
+ localStorage.setItem("stars",stars);
+ localStorage.setItem("fav",JSON.stringify(fav));
+ localStorage.setItem("username",username);
+}
+
+/* =========================
+   РЕНДЕР
+========================= */
 
 function render(){
-  const root=document.getElementById("content");
-  const query=document.getElementById("search").value.toLowerCase().trim();
-  let arr=data().filter(x=>
-    !query ||
-    x.home.toLowerCase().includes(query) ||
-    x.away.toLowerCase().includes(query) ||
-    x.league.toLowerCase().includes(query)
-  );
+ const q=document.getElementById("search").value.toLowerCase();
+ let arr=current==="football"?football:
+         current==="hockey"?hockey:
+         current==="ufc"?ufc:
+         all().filter(x=>fav.includes(x.id));
 
-  if(sport==="ufc"){
-    root.innerHTML=`
-      <section class="section">
-        <div class="section-head">
-          <h2>🥊 UFC</h2>
-          <button onclick="showAll()">Все события</button>
-        </div>
-        <div id="list"></div>
-      </section>`;
-    renderUFC(arr);
-    return;
-  }
+ arr=arr.filter(x=>
+   !q ||
+   x.home.toLowerCase().includes(q) ||
+   x.away.toLowerCase().includes(q) ||
+   x.l.toLowerCase().includes(q)
+ );
 
-  root.innerHTML=`
-    <section class="section">
-      <div class="section-head">
-        <h2>${sport==="hockey"?"🏒 Хоккей":"⚽ Футбол"}</h2>
-        <button onclick="showLive()">Только LIVE</button>
-      </div>
-      <div class="filters" id="filters"></div>
-      <div class="matches" id="list"></div>
-    </section>`;
+ if(current==="ufc"){
+  document.getElementById("content").innerHTML=`
+   <section class="section">
+    <div class="titleRow"><h2>🥊 UFC</h2></div>
+    <div id="list"></div>
+   </section>`;
+  renderUFC(arr);
+  return;
+ }
 
-  const leagues=[...new Set(arr.map(x=>x.league))];
-  document.getElementById("filters").innerHTML=
-    `<button class="filter active" onclick="filterLeague('all',this)">Все</button>`+
-    leagues.map(l=>`<button class="filter" onclick="filterLeague('${l}',this)">${l}</button>`).join("");
+ document.getElementById("content").innerHTML=`
+  <section class="section">
+   <div class="titleRow">
+    <h2>${current==="hockey"?"🏒 Хоккей":"⚽ Футбол"}</h2>
+    <button onclick="live()">LIVE →</button>
+   </div>
 
-  renderMatches(arr);
+   <div class="filters">
+    <button class="filter active" onclick="league('all',this)">Все</button>
+    ${[...new Set(arr.map(x=>x.l))].map(x=>
+      `<button class="filter" onclick="league('${x}',this)">${x}</button>`
+    ).join("")}
+   </div>
+
+   <div class="grid" id="list"></div>
+  </section>`;
+
+ renderMatches(arr);
 }
 
 function renderMatches(arr){
-  const list=document.getElementById("list");
-  if(!arr.length){
-    list.innerHTML=`<div class="empty">Ничего не найдено<br><small>Попробуй другое название</small></div>`;
-    return;
-  }
+ const list=document.getElementById("list");
 
-  list.innerHTML=arr.map(x=>`
-    <article class="match" onclick="openMatch(${x.id})">
-      <div class="match-top">
-        <span>${x.country||"🌍"} ${escapeHTML(x.league)}</span>
-        <span class="${x.live?"live":""}">${x.live?"● LIVE":x.time}</span>
-      </div>
+ if(!arr.length){
+  list.innerHTML=`<div class="empty">Ничего не найдено</div>`;
+  return;
+ }
 
-      <div class="match-teams">
-        <div class="team">
-          <div class="team-logo">${x.a}</div>
-          ${escapeHTML(x.home)}
-        </div>
+ list.innerHTML=arr.map(x=>{
+  let isFav=fav.includes(x.id);
 
-        <div class="score">
-          <div class="score-main">${x.score}</div>
-          <div class="time">${x.live?x.time:""}</div>
-        </div>
+  return `
+  <article class="card" onclick="match(${x.id})">
 
-        <div class="team">
-          <div class="team-logo">${x.b}</div>
-          ${escapeHTML(x.away)}
-        </div>
-      </div>
+   <div class="top">
+    <span>${esc(x.l)}</span>
+    <span class="${x.live?"live":""}">
+     ${x.live?"● LIVE":x.time}
+    </span>
+   </div>
 
-      <div class="match-bottom">
-        <span class="stat">📊 Статистика доступна</span>
-        <button class="open" onclick="event.stopPropagation();openMatch(${x.id})">Открыть</button>
-      </div>
-    </article>
-  `).join("");
+   <div class="teams">
+
+    <div class="team">
+     <div class="badge">${x.a}</div>
+     ${esc(x.home)}
+    </div>
+
+    <div class="middle">
+     <div class="score">${x.score}</div>
+     <div class="small">${x.live?x.time:""}</div>
+    </div>
+
+    <div class="team">
+     <div class="badge">${x.b}</div>
+     ${esc(x.away)}
+    </div>
+
+   </div>
+
+   <div class="bottom">
+    <button class="starBtn ${isFav?"on":""}"
+      onclick="event.stopPropagation();toggleFav(${x.id})">
+      ${isFav?"★":"☆"}
+    </button>
+
+    <span class="small">📊 Статистика</span>
+
+    <button class="openBtn"
+      onclick="event.stopPropagation();match(${x.id})">
+      Открыть
+    </button>
+   </div>
+
+  </article>`;
+ }).join("");
 }
 
 function renderUFC(arr){
-  const list=document.getElementById("list");
-  if(!arr.length){
-    list.innerHTML=`<div class="empty">Бойцов не найдено</div>`;
-    return;
-  }
+ const list=document.getElementById("list");
 
-  list.innerHTML=arr.map(x=>`
-    <article class="fight" onclick="openMatch(${x.id})">
-      <div class="fight-top">
-        <span>${escapeHTML(x.league)}</span>
-        <span>${x.time}</span>
-      </div>
+ if(!arr.length){
+  list.innerHTML=`<div class="empty">Ничего не найдено</div>`;
+  return;
+ }
 
-      <div class="fighters">
-        <div class="fighter">
-          <div class="avatar">${x.a}</div>
-          ${escapeHTML(x.home)}
-        </div>
-        <div class="vs">${x.score==="VS"?"VS":x.score}</div>
-        <div class="fighter">
-          <div class="avatar">${x.b}</div>
-          ${escapeHTML(x.away)}
-        </div>
-      </div>
-    </article>
-  `).join("");
+ list.innerHTML=arr.map(x=>`
+  <article class="fight" onclick="match(${x.id})">
+
+   <div class="top">
+    <span>${esc(x.l)}</span>
+    <span>${x.time}</span>
+   </div>
+
+   <div class="fighters">
+
+    <div class="fighter">
+     <div class="face">${x.a}</div>
+     ${esc(x.home)}
+    </div>
+
+    <div class="vs">${x.score}</div>
+
+    <div class="fighter">
+     <div class="face">${x.b}</div>
+     ${esc(x.away)}
+    </div>
+
+   </div>
+
+  </article>
+ `).join("");
 }
 
 /* =========================
-   NAVIGATION
+   СПОРТ
 ========================= */
 
-function setSport(type,btn){
-  sport=type;
-  document.querySelectorAll(".sport").forEach(x=>x.classList.remove("active"));
-  btn.classList.add("active");
+function sport(type,btn){
+ current=type;
 
-  const title={
-    football:"Футбол",
-    hockey:"Хоккей",
-    ufc:"UFC",
-    favorites:"Избранное"
-  }[type];
+ document.querySelectorAll(".sports button")
+  .forEach(x=>x.classList.remove("active"));
 
-  document.getElementById("heroTitle").textContent=
-    type==="favorites"?"Твои избранные события":`${title} — всё самое важное`;
+ btn.classList.add("active");
 
-  document.getElementById("heroText").textContent=
-    type==="favorites"
-      ?"Сохраняй интересные матчи и возвращайся к ним позже."
-      :"Матчи, результаты, LIVE и подробная статистика.";
+ document.getElementById("heroTitle").textContent=
+  type==="football"?"⚽ Футбол":
+  type==="hockey"?"🏒 Хоккей":"🥊 UFC";
 
-  render();
+ render();
 }
 
 function home(btn){
+ document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));
+ btn.classList.add("active");
+
+ current="football";
+ document.querySelectorAll(".sports button").forEach(x=>x.classList.remove("active"));
+ document.querySelector(".sports button").classList.add("active");
+
+ document.getElementById("heroTitle").textContent="Спорт в одном месте";
+ document.getElementById("heroText").textContent=
+  "Матчи, LIVE, статистика и прогнозы для тренировки.";
+
+ render();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function league(name,btn){
+ document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+ btn.classList.add("active");
+
+ let arr=current==="football"?football:hockey;
+ if(name!=="all")arr=arr.filter(x=>x.l===name);
+
+ renderMatches(arr);
+}
+
+function live(btn){
+ if(btn){
   document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));
   btn.classList.add("active");
+ }
 
-  sport="football";
-  document.querySelectorAll(".sport").forEach(x=>x.classList.remove("active"));
-  document.querySelector('[data-sport="football"]').classList.add("active");
+ let arr=all().filter(x=>x.live);
 
-  window.scrollTo({top:0,behavior:"smooth"});
-  render();
+ document.getElementById("heroTitle").textContent="🔴 LIVE";
+ document.getElementById("heroText").textContent=
+  "События, которые идут прямо сейчас.";
+
+ document.getElementById("content").innerHTML=`
+  <section class="section">
+   <div class="titleRow"><h2>Сейчас</h2></div>
+   <div class="grid" id="list"></div>
+  </section>`;
+
+ renderMatches(arr);
 }
 
-function showLive(btn){
-  if(btn){
-    document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));
-    btn.classList.add("active");
-  }
-
-  let all=[...football,...hockey,...ufc].filter(x=>x.live);
-
-  document.getElementById("heroTitle").textContent="🔴 Прямо сейчас";
-  document.getElementById("heroText").textContent="События, которые идут в данный момент.";
-
-  document.getElementById("content").innerHTML=`
-    <section class="section">
-      <div class="section-head"><h2>LIVE</h2></div>
-      <div class="matches" id="list"></div>
-    </section>`;
-
-  renderMatches(all);
-}
-
-function openFavorites(btn){
-  if(btn){
-    document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));
-    btn.classList.add("active");
-  }
-  sport="favorites";
-  document.querySelectorAll(".sport").forEach(x=>x.classList.remove("active"));
-  document.querySelector('[data-sport="favorites"]').classList.add("active");
-  render();
-}
-
-/* =========================
-   FILTER
-========================= */
-
-function filterLeague(league,btn){
-  document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+function favorites(btn){
+ if(btn){
+  document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));
   btn.classList.add("active");
+ }
 
-  let arr=data();
-  if(league!=="all")arr=arr.filter(x=>x.league===league);
-
-  const q=document.getElementById("search").value.toLowerCase();
-  if(q)arr=arr.filter(x=>
-    x.home.toLowerCase().includes(q)||
-    x.away.toLowerCase().includes(q)
-  );
-
-  renderMatches(arr);
+ current="favorites";
+ render();
 }
 
-function showAll(){
-  render();
-}
+function toggleFav(id){
+ if(fav.includes(id))
+  fav=fav.filter(x=>x!==id);
+ else
+  fav.push(id);
 
-/* =========================
-   MATCH MODAL
-========================= */
-
-function findMatch(id){
-  return [...football,...hockey,...ufc].find(x=>x.id===id);
-}
-
-function openMatch(id){
-  const x=findMatch(id);
-  if(!x)return;
-
-  const fav=favoriteIds.includes(x.id);
-
-  document.getElementById("sheet").innerHTML=`
-    <div class="sheet-head">
-      <div>
-        <div style="color:#8c95a5;font-size:12px">${escapeHTML(x.league)}</div>
-        <h2 style="margin-top:4px">${x.live?"🔴 LIVE":"Событие"}</h2>
-      </div>
-      <button class="close" onclick="closeModal()">×</button>
-    </div>
-
-    <div class="detail-score">
-      <div class="teams">${escapeHTML(x.home)} — ${escapeHTML(x.away)}</div>
-      <div class="big-score">${x.score}</div>
-      <div style="color:${x.live?"#32d583":"#8c95a5"}">${x.time}</div>
-    </div>
-
-    <div class="detail-grid">
-      <div class="detail-stat"><b>${x.stats[0]}</b><span>Показатель</span></div>
-      <div class="detail-stat"><b>${x.stats[1]}</b><span>Показатель</span></div>
-      <div class="detail-stat"><b>${x.stats[2]}</b><span>Показатель</span></div>
-    </div>
-
-    <button class="primary" style="margin-top:18px" onclick="toggleFavorite(${x.id)">
-      ${fav?"★ Убрать из избранного":"☆ Добавить в избранное"}
-    </button>
-  `;
-
-  openModal();
-}
-
-function toggleFavorite(id){
-  if(favoriteIds.includes(id)){
-    favoriteIds=favoriteIds.filter(x=>x!==id);
-  }else{
-    favoriteIds.push(id);
-  }
-
-  localStorage.setItem("favorites",JSON.stringify(favoriteIds));
-  closeModal();
-  render();
+ save();
+ render();
+ toast(fav.includes(id)?"Добавлено в избранное":"Удалено из избранного");
 }
 
 /* =========================
-   PROFILE / LOGIN
+   MATCH
 ========================= */
 
-function openProfile(btn){
-  if(btn){
-    document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));
-    btn.classList.add("active");
-  }
+function match(id){
+ const x=find(id);
+ if(!x)return;
 
-  document.getElementById("sheet").innerHTML=`
-    <div class="sheet-head">
-      <h2>Профиль</h2>
-      <button class="close" onclick="closeModal()">×</button>
-    </div>
+ let isUFC=x.id>=200;
 
-    <div class="profile-card">
-      <div class="profile-avatar">👤</div>
-      <div class="profile-name">${escapeHTML(username)}</div>
-      <div class="profile-sub">Локальный демо-профиль</div>
-    </div>
+ document.getElementById("sheet").innerHTML=`
 
-    <div class="profile-row">
-      <span>⭐ Виртуальные очки</span>
-      <b>${points.toLocaleString("ru-RU")}</b>
-    </div>
+ <div class="modalHead">
+  <div>
+   <small style="color:#7f8999">${esc(x.l)}</small>
+   <h2 style="margin:5px 0 0">${x.live?"🔴 LIVE":"Событие"}</h2>
+  </div>
+  <button class="close" onclick="closeModal()">×</button>
+ </div>
 
-    <div class="profile-row">
-      <span>⭐ Избранных событий</span>
-      <b>${favoriteIds.length}</b>
-    </div>
+ <div class="detail">
 
-    <button class="primary" onclick="openLogin()">Войти / создать профиль</button>
-  `;
+  <div class="detailTeams">
+   ${esc(x.home)} — ${esc(x.away)}
+  </div>
 
-  openModal();
+  <div class="detailScore">${x.score}</div>
+  <div class="detailTime">${x.time}</div>
+
+ </div>
+
+ <div class="stats">
+  <div class="stat"><b>${isUFC?"3":"57%"}</b><span>Атаки</span></div>
+  <div class="stat"><b>${isUFC?"2":"11"}</b><span>Удары</span></div>
+  <div class="stat"><b>${isUFC?"1":"4"}</b><span>В створ</span></div>
+ </div>
+
+ ${x.live?
+ `<div class="question">
+   <strong>🔴 Событие идёт в LIVE</strong>
+   <div style="color:#8993a4;font-size:13px">
+    Следи за счётом и статистикой в реальном времени.
+   </div>
+  </div>`:""}
+
+ <div class="question">
+  <strong>🎯 Тренировочный прогноз</strong>
+
+  <div class="options">
+   <button class="option" onclick="choose(${x.id},'A',this)">
+    ${esc(x.home)}
+   </button>
+
+   <button class="option" onclick="choose(${x.id},'B',this)">
+    ${esc(x.away)}
+   </button>
+
+   ${!isUFC?
+   `<button class="option" onclick="choose(${x.id},'DRAW',this)">
+     Ничья
+    </button>`:""}
+
+   <button class="option" onclick="choose(${x.id},'SCORE',this)">
+    Точный счёт
+   </button>
+  </div>
+
+  <button class="submit" onclick="submitPrediction(${x.id})">
+   Сохранить прогноз
+  </button>
+ </div>
+
+ <div class="question">
+  <strong>📊 Подробная статистика</strong>
+  <div style="color:#8993a4;line-height:1.7;font-size:13px">
+   Владение • удары • атаки • форма • последние результаты
+   • очные встречи
+  </div>
+ </div>
+ `;
+
+ openModal();
 }
 
-function openLogin(){
-  document.getElementById("sheet").innerHTML=`
-    <div class="sheet-head">
-      <h2>Вход</h2>
-      <button class="close" onclick="closeModal()">×</button>
-    </div>
+function choose(id,value,btn){
+ document.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));
+ btn.classList.add("selected");
 
-    <div class="login-form">
-      <input id="loginName" placeholder="Введите имя">
-      <input id="loginEmail" placeholder="Email (демо)" type="email">
-      <button class="primary" onclick="login()">Продолжить</button>
-    </div>
+ answers[id]=value;
+}
 
-    <p style="color:#777f90;font-size:12px;text-align:center;margin-top:13px">
-      Данные сохраняются только в браузере.
-    </p>
-  `;
+function submitPrediction(id){
+ const x=find(id);
+
+ if(!answers[id]){
+  toast("Сначала выбери вариант");
+  return;
+ }
+
+ if(x.live){
+  toast("Матч уже идёт — прогноз закрыт");
+  return;
+ }
+
+ localStorage.setItem("prediction_"+id,answers[id]);
+
+ stars+=10;
+ save();
+ setStars();
+
+ toast("Прогноз сохранён • +10 ⭐");
+
+ setTimeout(closeModal,700);
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+function profile(btn){
+ if(btn){
+  document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));
+  btn.classList.add("active");
+ }
+
+ document.getElementById("sheet").innerHTML=`
+  <div class="modalHead">
+   <h2>Профиль</h2>
+   <button class="close" onclick="closeModal()">×</button>
+  </div>
+
+  <div class="profile">
+   <div class="profileAvatar">👤</div>
+   <div class="profileName">${esc(username)}</div>
+   <div class="profileMuted">Локальный аккаунт</div>
+  </div>
+
+  <div class="row">
+   <span>⭐ Звёзды</span>
+   <b>${stars.toLocaleString("ru-RU")}</b>
+  </div>
+
+  <div class="row">
+   <span>⭐ Избранных</span>
+   <b>${fav.length}</b>
+  </div>
+
+  <button class="primary" style="margin-top:15px" onclick="login()">
+   ${username==="Гость"?"Войти / зарегистрироваться":"Изменить профиль"}
+  </button>
+ `;
+
+ openModal();
 }
 
 function login(){
-  const name=document.getElementById("loginName").value.trim();
+ document.getElementById("sheet").innerHTML=`
+  <div class="modalHead">
+   <h2>Вход / регистрация</h2>
+   <button class="close" onclick="closeModal()">×</button>
+  </div>
 
-  if(!name){
-    alert("Введите имя");
-    return;
-  }
+  <div class="form">
+   <input id="name" placeholder="Имя или никнейм">
+   <input id="email" placeholder="Email">
+   <input id="password" placeholder="Пароль" type="password">
 
-  username=name;
-  localStorage.setItem("username",username);
+   <button class="primary" onclick="register()">
+    Продолжить
+   </button>
+  </div>
 
-  document.getElementById("sheet").innerHTML=`
-    <div style="text-align:center;padding:30px 10px">
-      <div style="font-size:55px">✅</div>
-      <h2 style="margin-top:12px">Готово!</h2>
-      <p style="color:#8c95a5;margin-top:8px">
-        Профиль ${escapeHTML(username)} создан на этом устройстве.
-      </p>
-      <button class="primary" onclick="closeModal()">Продолжить</button>
-    </div>
-  `;
+  <button class="switch" onclick="toast('Это локальная демо-регистрация')">
+   Как это работает?
+  </button>
+
+  <p style="color:#737d8e;font-size:12px;text-align:center;margin-top:12px">
+   Аккаунт работает локально в этом браузере.
+  </p>
+ `;
+}
+
+function register(){
+ const name=document.getElementById("name").value.trim();
+ const email=document.getElementById("email").value.trim();
+ const pass=document.getElementById("password").value;
+
+ if(!name||!email||!pass){
+  toast("Заполни все поля");
+  return;
+ }
+
+ username=name;
+ save();
+
+ document.getElementById("sheet").innerHTML=`
+  <div style="text-align:center;padding:30px 5px">
+   <div style="font-size:55px">✅</div>
+   <h2>Профиль создан</h2>
+   <p style="color:#8993a4">
+    Добро пожаловать, ${esc(username)}!
+   </p>
+   <button class="primary" onclick="closeModal()">
+    Продолжить
+   </button>
+  </div>
+ `;
+
+ toast("Регистрация завершена");
 }
 
 /* =========================
@@ -720,56 +784,51 @@ function login(){
 ========================= */
 
 function openModal(){
-  document.getElementById("modal").classList.add("show");
-  document.body.style.overflow="hidden";
+ document.getElementById("modal").classList.add("show");
+ document.body.style.overflow="hidden";
 }
 
 function closeModal(){
-  document.getElementById("modal").classList.remove("show");
-  document.body.style.overflow="";
+ document.getElementById("modal").classList.remove("show");
+ document.body.style.overflow="";
 }
 
-function closeOutside(e){
-  if(e.target.id==="modal")closeModal();
+function outside(e){
+ if(e.target.id==="modal")closeModal();
 }
 
 /* =========================
-   LIVE SIMULATION
+   LIVE TIMER
 ========================= */
 
 setInterval(()=>{
-  football.forEach(x=>{
-    if(x.live){
-      let minute=parseInt(x.time)||0;
-      minute++;
-      if(minute>=90){
-        x.live=false;
-        x.time="Завершён";
-      }else{
-        x.time=minute+"'";
-      }
-    }
-  });
+ football.forEach(x=>{
+  if(x.live){
+   let n=parseInt(x.time);
+   if(!isNaN(n)){
+    n++;
+    if(n>=90){
+     x.live=false;
+     x.time="Завершён";
+    }else x.time=n+"'";
+   }
+  }
+ });
 
-  hockey.forEach(x=>{
-    if(x.live){
-      let m=x.time.match(/(\d+):(\d+)/);
-      if(m){
-        let sec=Number(m[1])*60+Number(m[2])+1;
-        let min=Math.floor(sec/60);
-        let s=String(sec%60).padStart(2,"0");
-        x.time=x.time.split("•")[0]+"• "+min+":"+s;
-      }
-    }
-  });
+ render();
+},60000);
 
-  if(document.querySelector(".live"))render();
-},1000);
+/* TOAST */
+function toast(text){
+ const t=document.getElementById("toast");
+ t.textContent=text;
+ t.classList.add("show");
 
-/* INIT */
-document.getElementById("points").textContent=
-  "⭐ "+points.toLocaleString("ru-RU");
+ setTimeout(()=>t.classList.remove("show"),1800);
+}
 
+/* START */
+setStars();
 render();
 </script>
 
